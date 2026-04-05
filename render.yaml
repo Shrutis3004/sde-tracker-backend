@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: sde-tracker-api
+    runtime: docker
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: DB_PATH
+        value: /app/data/sde_tracker.db
+      - key: JWT_SECRET
+        generateValue: true
+    disk:
+      name: data
+      mountPath: /app/data
+      sizeGB: 1
